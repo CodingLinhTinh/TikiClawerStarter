@@ -200,12 +200,15 @@ class TikiClawer:
     
     # Lưu tên các sản phẩm trong 1 file.txt
     def savingData(self, data, path):
+        
         with open(path, "a+", encoding="utf-8") as file:
             file.seek(0) # con trỏ sẽ được đưa về vị trí đầu tiên của tệp, cho phép đọc dữ liệu từ đầu tệp mà không cần mở lại tệp
             existing_data = file.read().splitlines()
+            
             for element in data:
                 if str(element) not in existing_data:
                     file.write(str(element) + "\n")
+                    
         print(path + " created or updated!")
 
 
